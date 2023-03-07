@@ -3,7 +3,12 @@ import Card from './card'
 
 const Grid = () => {
   return (
-   <Card/>
+ <div className='mt-5'>
+<Card/>
+ </div>
+
+   
+   
   )
 }
 
