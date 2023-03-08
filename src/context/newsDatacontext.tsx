@@ -1,7 +1,7 @@
 import { createContext} from 'react'
 
 
-interface newsData {
+export interface newsData {
     id:number;
     Imageurl:string;
     url:string;
@@ -15,11 +15,15 @@ interface newsData {
 
 export interface NewsContextData {
     news: newsData[];
+    isLoading: boolean;
+    fetchPosts: () => void;
   }
 
 
 export const newsContextDefaultValue: NewsContextData = {
-    news: []
+    news: [],
+    isLoading: false,
+    fetchPosts: () => null,
   }
 
 
