@@ -1,5 +1,5 @@
-import {NewsContextData,newsData} from '../context/newsDatacontext'
-import {useCallback, useState} from 'react'
+import {NewsContext, NewsContextData,newsData} from '../context/newsDatacontext'
+import {useCallback, useState,useContext,useEffect} from 'react'
 
 
 
@@ -14,11 +14,11 @@ export function useNewsContextValue(): NewsContextData{
         fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=e1009a570111462d9295724c7b573134`)
         .then(response =>  response.json())
         .then((fetchedNews)=>{
-            setNews(news)
+            setNews(fetchedNews.articles)
         }).finally(()=>{
             setIsLoading(false)
         })
-    },[setNews,news]);
+    },[setNews]);
 
     return{
         news,
@@ -29,3 +29,14 @@ export function useNewsContextValue(): NewsContextData{
 
 
 }
+
+
+
+
+export function useNewsLoading() {
+    const { fetchPosts } = useContext(NewsContext);
+   
+    useEffect(() => {
+      fetchPosts();
+    }, [fetchPosts])
+  }
