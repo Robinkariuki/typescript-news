@@ -3,10 +3,13 @@ import { createContext} from 'react'
 
 export interface newsData {
     id:number;
-    Imageurl:string;
+    urlToImage:string;
     url:string;
-    date:Date;
+    publishedAt:string;
     author:string;
+    title:string;
+    description:string
+
    
 }
 
