@@ -16,7 +16,7 @@ export function useNewsContextValue(): NewsContextData{
     const fetchPosts = useCallback(()=>{
     
         setIsLoading(true)
-        fetch(`https://newsapi.org/v2/top-headlines?country=us&page=${page}&pageSize=10&apiKey=e1009a570111462d9295724c7b573134`)
+        fetch(`${process.env.REACT_APP_API_URL}top-headlines?country=us&page=${page}&apiKey=${process.env.REACT_APP_API_KEY}`)
         .then(response =>  response.json())
         .then((fetchedNews)=>{
             setNews([...news,...fetchedNews.articles])

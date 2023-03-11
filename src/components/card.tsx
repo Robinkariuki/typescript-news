@@ -7,7 +7,7 @@ const Card:React.FC = () => {
   const {news,length,fetchPosts,isLastPage} = useContext(NewsContext)
   
 
-  useNewsLoading()
+useNewsLoading()
 console.log(news)
 
   return (
